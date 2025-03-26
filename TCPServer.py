@@ -10,7 +10,9 @@ print ('The server is ready to receive')
 
 def handleClient(connectionSocket, address):
    sentence = connectionSocket.recv(1024).decode()
+   sentence = sentence.strip()
    print(sentence)
+   print('--------------')
    capitalizedSentence = sentence.upper() #kan udelades
    connectionSocket.send(capitalizedSentence.encode())
    connectionSocket.close()
